@@ -33,8 +33,6 @@ async function runSummarizer() {
       document.getElementById('readTime').textContent = `${readTimeMins} min read`;
 
       console.log("Extracted text, sending to AI...");
-      
-      // --- NEW: Added 'url: tab.url' to the message payload ---
       chrome.runtime.sendMessage({ action: "summarizeText", text: response.text, url: tab.url }, (aiResponse) => {
         
         if (chrome.runtime.lastError || !aiResponse) {
