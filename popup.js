@@ -70,10 +70,6 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   showState('idle');
 });
 
-document.getElementById('settingsBtn').addEventListener('click', () => {
-  chrome.runtime.openOptionsPage();
-});
-
 document.getElementById('copyBtn').addEventListener('click', async () => {
   const summaryText = Array.from(document.querySelectorAll('#summaryList li'))
                            .map(li => '• ' + li.textContent)
