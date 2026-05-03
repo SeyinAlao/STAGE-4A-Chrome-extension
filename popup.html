@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="logo-mark">✦</div>
+      <div class="header-text">
+        <h1>Summarise</h1>
+        <p class="tagline">Page intelligence</p>
+      </div>
+      <button class="settings-btn" id="settingsBtn" title="Options">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="divider"></div>
+
+    <main class="content">
+      <div id="idle" class="state">
+        <p class="page-title" id="pageTitle">Loading page info...</p>
+        <button id="summarizeBtn" class="primary-btn">
+          <span class="btn-icon">◎</span>
+          Summarise this page
+        </button>
+      </div>
+
+      <div id="loading" class="state hidden">
+        <div class="loading-animation">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <p class="loading-label">Reading &amp; summarising…</p>
+      </div>
+
+      <div id="error" class="state hidden">
+        <div class="error-icon">!</div>
+        <p id="errorText" class="error-text">Something went wrong.</p>
+        <button id="retryBtn" class="secondary-btn">Try again</button>
+      </div>
+
+      <div id="result" class="state hidden">
+        <div class="meta-row">
+          <span class="meta-pill" id="readTime"></span>
+          <button id="copyBtn" class="copy-btn" title="Copy summary">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M9 4V2.5A1.5 1.5 0 0 0 7.5 1h-5A1.5 1.5 0 0 0 1 2.5v5A1.5 1.5 0 0 0 2.5 9H4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            Copy
+          </button>
+        </div>
+
+        <h2 class="section-label">Key insights</h2>
+        <ul id="summaryList" class="summary-list"></ul>
+
+        <button id="clearBtn" class="ghost-btn">Clear &amp; reset</button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
