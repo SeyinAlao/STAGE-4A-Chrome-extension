@@ -45,9 +45,13 @@ async function runSummarizer() {
           return;
         }
         const bulletPoints = aiResponse.summary.split('\n').filter(line => line.trim() !== '');
-        const listHTML = bulletPoints.map(point => `<li>${point.replace(/^[-\u2022]\s*/, '')}</li>`).join('');
-        
-        document.getElementById('summaryList').innerHTML = listHTML;
+        const ul = document.getElementById('summaryList');
+        ul.innerHTML = '';
+        bulletPoints.forEach(point => {
+          const li = document.createElement('li');
+          li.textContent = point.replace(/^[-\u2022]\s*/, '');
+          ul.appendChild(li);
+        });
         showState('result');
       });
     });

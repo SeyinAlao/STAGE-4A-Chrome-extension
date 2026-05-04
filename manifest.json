@@ -15,6 +15,6 @@
     "storage"
   ],
   "host_permissions": [
-    "https://api.openai.com/*"
+    "https://backend-chrome-extension-lenf.onrender.com/*"
   ]
 }
